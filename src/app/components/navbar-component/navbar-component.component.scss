@@ -1,0 +1,116 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .dropdown-menu {
+    width: 300px; 
+  }
+  
+  .dropdown-item > div {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .dropdown-item > div:last-child {
+    border-bottom: none;
+  }
+  .bg-image {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: -1; 
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 10px;
+    padding-top: 70px;
+    width: 90%;
+    max-width: 1200px;
+    box-sizing: border-box;
+  }
+  
+  .box {
+    
+    color: black;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 10px;
+    position:relative;
+    
+  }
+  .box:hover{
+    transform: scale(1.05);
+    background: black;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 5px 10px 2px rgb(177, 210, 247), 0 5px 10px 2px rgba(177, 210, 247);
+    z-index:1000
+
+  }
+  .box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .box p {
+    margin-top: 5px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    color: #333;
+    cursor: pointer;
+  }
+  .box p:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -1px;
+    left: 0;
+    background-color: #333;
+    visibility: hidden;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: all 0.3s ease-in-out;
+  }
+  .box p:hover:after {
+    visibility: visible;
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+
+  
+  
+  
+  /* Responsive Layout */
+  
+  @media (min-width: 1200px) {
+    .container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    .container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }

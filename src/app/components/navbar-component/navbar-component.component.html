@@ -1,0 +1,38 @@
+<nav class="navbar sticky-top navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">
+    <img src="assets\blue_altair_logo.jpg" width="30" height="30" alt="" class="d-inline-block align-top">
+    Blue Altair
+  </a>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <span class="form-inline-text border rounded ">
+        <button class="btn  my-2 my-sm-0 btn color-light " type="submit">
+          <img src="assets\search.svg" alt="" class="rounded">
+        </button>
+      </span>
+    </form>
+  </div>
+</nav>
+<div class="bg-image">
+  <img src="assets\bg-photo.jpg" class="bg-image">
+</div>
+<div class="container" >
+  <div class="box bg-primary" *ngFor="let category of carCategories" (click)="navigateToCarList(category.name)">
+    <img [src]="category.imageUrl" alt="{{ category.name }} Image">
+      <p>{{ category.name }}</p>
+  </div>
+</div>
+

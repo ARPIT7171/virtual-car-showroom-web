@@ -1,0 +1,57 @@
+<h3>Add a New Car</h3>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="carsaveform" #carsave (ngSubmit)="addCar(addCar)">  
+          <div class="form-group">  
+              <label for="name">Car Name</label>  
+              <input type="text" class="form-control"  formControlName="name" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Car Name" >  
+          </div>  
+          <div class="form-group">  
+              <label for="color">Car Color</label>  
+              <input type="text" class="form-control"  formControlName="color" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Car's Color" >  
+          </div>  
+          <div class="form-group">  
+              <label for="model">Car Model</label>  
+              <input type="text" class="form-control"  formControlName="model" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Car's Model" >  
+          </div>  
+          <div class="form-group">  
+              <label for="engine">Car Engine</label>  
+              <input type="text" class="form-control"  formControlName="engine" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Car's Engine" >  
+          </div>  
+          <div class="form-group">  
+              <label for="price">Car Price</label>  
+              <input type="text" class="form-control"  formControlName="price" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Car's Price" >  
+          </div>  
+          <div class="form-group">  
+              <label for="vin">Car VIN</label>  
+              <input type="text" class="form-control"  formControlName="vin" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Car's VIN" >  
+          </div>  
+          <div class="form-group">  
+              <label for="image">Car Image</label>  
+              <input type="text" class="form-control"  formControlName="image" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Car's Image" >  
+          </div>  
+          <button type="submit" class="btn btn-success">Submit</button>  
+      </form>  
+  </div>  
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4">  
+      <div [hidden]="!submitted">  
+         <h4>Car Added SuccessFully!</h4>  
+         <button (click)="addCarForm()" class='btn btn-primary'>Add More Cars</button>  
+      </div>        
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>
