@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';  
+import { Observable, observable } from 'rxjs';  
+import { Car } from 'src/app/modules/car';
 import { CarModel } from 'src/app/modules/car-model.enum';
 
 
@@ -8,14 +9,15 @@ import { CarModel } from 'src/app/modules/car-model.enum';
   providedIn: 'root'
 })
 export class AddCarService {
-  private baseUrl = 'http://localhost:8000/api/';  
+  private baseUrl = "http://localhost:8000/api";  
 
-
+  
   constructor(private http:HttpClient) { }
-  createCar(car: object): Observable<object> {  
-    return this.http.post(`${this.baseUrl}`+'save-car', car);  
+
+  createCar(car: Car): Observable<Object> {  
+    return this.http.post((`${this.baseUrl}/add-car`), car);  
   }
-  getAllCarsByModelType(model:CarModel): Observable<any> {  
-    return this.http.get(`${this.baseUrl}/car-model/${model}`);  
+  getAllCarsByModelType(model:string): Observable<any[]> {  
+    return this.http.get<any[]>((`${this.baseUrl}/get-models`));  
   } 
 }

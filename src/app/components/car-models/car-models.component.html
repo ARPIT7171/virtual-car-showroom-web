@@ -1,0 +1,13 @@
+<h2>Cars of Model: {{ model }}</h2>
+<div class="car-list">
+  <div *ngFor="let car of cars" class="car-item">
+    <img [src]="car.image" alt="{{ car.name }}">
+    <div class="car-details">
+      <h3>{{ car.name }}</h3>
+      <p>Engine: {{ car.engine }}</p>
+      <p>Color: {{ car.color }}</p>
+      <p>Price: {{ car.price }}</p>
+      <p>VIN: {{ car.vin }}</p>
+    </div>
+  </div>
+</div>

@@ -5,8 +5,8 @@ import { AddCarComponent } from './components/add-car/add-car/add-car.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'car-models', component: CarModelsComponent },
   { path:'add-car', component:AddCarComponent},
+  { path:'car/:model', component:CarModelsComponent},
 ];
 
 @NgModule({

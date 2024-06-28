@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-interface Car {
-  name: string;
-  model: string;
-  engine: string;
-  color: string;
-  price: string;
-  vin: string;
-  image: string;
-}
+import { AddCarService } from 'src/app/services/add-car/add-car.service';
+import { CarModel } from 'src/app/modules/car-model.enum';
+import { Car } from 'src/app/modules/car';
 
 @Component({
   selector: 'app-car-models',
@@ -18,26 +12,24 @@ interface Car {
 })
 export class CarModelsComponent implements OnInit {
 
-  cars: Car[] = [];
+  model:CarModel;
+  cars: any[] = [];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private addCarService:AddCarService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const model = params['model'];
-      this.getAllCarsByModel(model);
+      this.model = params['model'];
+      this.getCarsByModelType();
     });
+    
   }
 
-  getAllCarsByModel(model: string): void {
-    this.http.get<Car[]>(`/api/cars/model/${model}`).subscribe(
-      (data: Car[]) => {
-        this.cars = data;
-      },
-      error => {
-        console.error('Error fetching cars:', error);
-      }
-    );
+  getCarsByModelType(): void {
+    this.addCarService.getAllCarsByModelType(this.model).subscribe(cars => {
+      this.cars = cars;
+    });
   }
+ 
 
 }

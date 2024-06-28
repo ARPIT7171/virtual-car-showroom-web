@@ -18,7 +18,9 @@ export class NavbarComponentComponent implements OnInit {
     { name: 'WAGON', imageUrl: 'assets/wagon-box.jpg' }
   ];
   constructor(private router: Router) { }
-
+  navigateToCarList(model: string): void {
+    this.router.navigate(['/car', model]);
+  }
 
 
   ngOnInit(): void {
